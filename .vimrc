@@ -29,10 +29,14 @@ set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc
 
+" Enable Pathogen
+call pathogen#infect()
+
+syntax on
 
 " Autocomplete fun
 filetype on
-filetype plugin on
+filetype plugin indent on
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
