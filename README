@@ -1,5 +1,5 @@
 
-git clone https://github.com/blocke/dotflies.git dotfiles
+git clone https://github.com/blocke/dotfiles.git dotfiles
 cd dotfiles
 git submodule init
 git submodule update
