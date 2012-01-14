@@ -61,6 +61,11 @@ set completeopt-=preview
 " Automatic comment insertion is evil
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+" Turn off autoindent
+nnoremap <F8> :setl noai nocin nosi inde=<CR>
+" Turn on autoindent
+nnoremap <F9> :setl ai cin si<CR>
+
 " Woo colors...
 if &term =~ "xterm"
   "256 color --
