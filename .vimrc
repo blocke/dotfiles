@@ -29,6 +29,9 @@ set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc
 
+" Display filename in bottom bar
+set ls=2
+
 " Enable Pathogen
 call pathogen#infect()
 
