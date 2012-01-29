@@ -30,7 +30,17 @@ set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc
 
 " Display filename in bottom bar
-set ls=2
+"set ls=2
+
+" Default tab bindings too painful across platforms so use F1/F2 instead
+map <F1> :tabp<CR>
+map! <F1> <ESC>:tabp<CR>
+
+map <F2> :tabn<CR>
+map! <F2> <ESC>:tabn<CR>
+
+" Always display tab bar
+set stal=2
 
 " Enable Pathogen
 call pathogen#infect()
@@ -65,19 +75,24 @@ set completeopt-=preview
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " Turn off autoindent
-nnoremap <F8> :setl noai nocin nosi inde=<CR>
+nnoremap <F10> :setl noai nocin nosi inde=<CR>
 " Turn on autoindent
-nnoremap <F9> :setl ai cin si<CR>
+nnoremap <F11> cin si<CR>
 
 " Woo colors...
 if &term =~ "xterm"
-  "256 color --
-  let &t_Co=256
+    "256 color --
+    let &t_Co=256
 endif
 
 if &term =~ "screen"
-  "256 color --
-  let &t_Co=256
+    "256 color --
+    let &t_Co=256
+endif
+
+if &term =~ "linux"
+    "256 color --
+    let &t_Co=256
 endif
 
 colorscheme darkburn
