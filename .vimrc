@@ -39,6 +39,10 @@ map! <F1> <ESC>:tabp<CR>
 map <F2> :tabn<CR>
 map! <F2> <ESC>:tabn<CR>
 
+" NERDTree on F3
+map <F4> :NERDTree<CR>
+map! <F4> <ESC>:NERDTree<CR>
+
 " Always display tab bar
 set stal=2
 
