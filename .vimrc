@@ -40,8 +40,12 @@ map <F2> :tabn<CR>
 map! <F2> <ESC>:tabn<CR>
 
 " NERDTree on F3
-map <F4> :NERDTree<CR>
-map! <F4> <ESC>:NERDTree<CR>
+map <F4> :NERDTreeToggle<CR>
+map! <F4> <ESC>:NERDTreeToggle<CR>
+
+" Taglist on F5
+map <F5> :TlistToggle<CR>
+map! <F5> <ESC>:TlistToggle<CR>
 
 " Always display tab bar
 set stal=2

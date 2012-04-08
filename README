@@ -6,3 +6,6 @@ git submodule update
 
 pip install flake8
 
+apt-get install exuberant-ctags
+
+
