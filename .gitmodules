@@ -1,6 +1,12 @@
 [submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+        path = .vim/bundle/syntastic
+    	url = git://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/vim-javascript"]
-	path = .vim/bundle/vim-javascript
-	url = https://github.com/pangloss/vim-javascript.git
+        path = .vim/bundle/vim-javascript
+        url = git://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/nerdtree"]
+        path = .vim/bundle/nerdtree
+        url = git://github.com/scrooloose/nerdtree.git
+[submodule ".vim/bundle/tagbar"]
+        path = .vim/bundle/tagbar
+        url = git://github.com/majutsushi/tagbar.git
