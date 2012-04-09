@@ -53,6 +53,13 @@ set stal=2
 " Enable Pathogen
 call pathogen#infect()
 
+" Force use of flake8                                                                                                       
+let g:syntastic_python_checker = 'flake8'                                                                                   
+                                                                                                                            
+" Disable certain PEP8 checks in flake8                                                                                     
+let g:syntastic_python_checker_args = '--ignore=E302'                                                                       
+                                                          
+
 syntax on
 
 " Autocomplete fun
