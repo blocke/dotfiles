@@ -7,3 +7,5 @@ git submodule update
 apt-get install vim tmux exuberant-ctags keychain python-virtualenv
 pip install flake8
 
+git config --global core.excludefiles ~/.gitignore
+
