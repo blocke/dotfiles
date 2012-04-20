@@ -4,8 +4,6 @@ cd dotfiles
 git submodule init
 git submodule update
 
+apt-get install vim tmux exuberant-ctags keychain python-virtualenv
 pip install flake8
-
-apt-get install exuberant-ctags
-
 
