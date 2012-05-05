@@ -4,8 +4,11 @@ cd dotfiles
 git submodule init
 git submodule update
 
-apt-get install vim tmux exuberant-ctags keychain python-virtualenv
+apt-get install vim tmux exuberant-ctags keychain python-virtualenv python-dev
 pip install flake8
+
+apt-get install npm
+npm install jshint -g
 
 git config --global core.excludesfile ~/.gitignore
 
