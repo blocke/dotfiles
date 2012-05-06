@@ -92,7 +92,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Turn off autoindent
 nnoremap <F10> :setl noai nocin nosi inde=<CR>
 " Turn on autoindent
-nnoremap <F11> cin si<CR>
+nnoremap <F11> :setl cin si<CR>
 
 " Woo colors...
 if &term =~ "xterm"
