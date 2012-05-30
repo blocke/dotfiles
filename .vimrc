@@ -166,13 +166,4 @@ endif
 
 colorscheme darkburn
 
-" Disable arrow keys to encourage leaning text object navigation
-noremap <Up> <Nop>
-noremap! <Up> <Nop>
-noremap <Down> <Nop>
-noremap! <Down> <Nop>
-noremap <Left> <Nop>
-noremap! <Left> <Nop>
-noremap <Right> <Nop>
-noremap! <Right> <Nop>
 
