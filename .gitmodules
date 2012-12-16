@@ -10,9 +10,6 @@
 [submodule ".vim/bundle/tagbar"]
         path = .vim/bundle/tagbar
         url = git://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/neocompletecache"]
-	path = .vim/bundle/neocompletecache
-	url = git://github.com/Shougo/neocomplcache.git
-[submodule ".vim/bundle/neosnippet"]
-	path = .vim/bundle/neosnippet
-	url = git@github.com:Shougo/neosnippet.git
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
