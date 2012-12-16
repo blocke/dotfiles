@@ -13,6 +13,6 @@
 [submodule ".vim/bundle/neocompletecache"]
 	path = .vim/bundle/neocompletecache
 	url = git://github.com/Shougo/neocomplcache.git
-[submodule ".vim/bundle/neocomplcache-snippets-complete"]
-	path = .vim/bundle/neocomplcache-snippets-complete
-	url = git://github.com/Shougo/neocomplcache-snippets-complete.git
+[submodule ".vim/bundle/neosnippet"]
+	path = .vim/bundle/neosnippet
+	url = git@github.com:Shougo/neosnippet.git
