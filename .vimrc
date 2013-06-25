@@ -93,6 +93,8 @@ nnoremap <F10> :setl noai nocin nosi inde=<CR>
 " Turn on autoindent
 nnoremap <F11> :setl cin si<CR>
 
+" Yaml indenting
+autocmd FileType yaml set tabstop=2 expandtab softtabstop=2
 
 " Woo colors...
 if &term =~ "xterm"
