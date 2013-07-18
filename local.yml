@@ -6,6 +6,7 @@
   vars:
     blocke_home_dir: /home/blocke
     blocke_mail_addr: blocke@shivan.org
+    dotfiles_files_dir: files
 
   tasks:
     - import dotfiles.yml

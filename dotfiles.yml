@@ -6,7 +6,7 @@
     - .vim/bundle
 
 - name: various dot files
-  copy: src=files/{{ item }} dest={{ blocke_home_dir }}/{{ item }}
+  copy: src={{ dotfiles_files_dir }}/{{ item }} dest={{ blocke_home_dir }}/{{ item }}
   with_items:
     - .vimrc
     - .vim/colors/darkburn.vim
@@ -17,14 +17,14 @@
   git: repo=https://github.com/gmarik/vundle.git dest={{ blocke_home_dir }}/.vim/bundle/vundle 
 
 - name: vim - run vundle bundle install
-  command: /usr/bin/vim +BundleInstall +qall
+  command: chdir={{ blocke_home_dir }} /usr/bin/vim +BundleInstall +qall
 
 - name: git - set global .gitignore
-  command: /usr/bin/git config --global core.excludesfile ~/.gitignore
+  command: chdir={{ blocke_home_dir }} /usr/bin/git config --global core.excludesfile ~/.gitignore
 
 - name: git - user.name
-  command: /usr/bin/git config --global user.name "Bruce A. Locke"
+  command: chdir={{ blocke_home_dir}} /usr/bin/git config --global user.name "Bruce A. Locke"
 
 - name: git - user.email
-  command: /usr/bin/git config --global user.email {{ blocke_email_addr }}
+  command: chdir={{ blocke_home_dir }} /usr/bin/git config --global user.email {{ blocke_email_addr }}
 
