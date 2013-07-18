@@ -5,6 +5,7 @@
 
   vars:
     home_dir: /home/blocke
+    email_addr: blocke@shivan.org
 
   tasks:
 
@@ -14,7 +15,6 @@
         - .vim
         - .vim/colors
         - .vim/bundle
-
 
     - name: various dot files
       copy: src=files/{{ item }} dest={{ home_dir }}/{{ item }}
@@ -33,4 +33,9 @@
     - name: git - set global .gitignore
       command: /usr/bin/git config --global core.excludesfile ~/.gitignore
 
+    - name: git - user.name
+      command: /usr/bin/git config --global user.name "Bruce A. Locke"
+
+    - name: git - user.email
+      command: /usr/bin/git config --global user.email {{ email_addr }}
 
