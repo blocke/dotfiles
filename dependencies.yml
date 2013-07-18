@@ -12,6 +12,7 @@
       apt: name={{ item }} state=installed
       when: ansible_distribution == "Ubuntu"
       with_items:
+        - vim
         - exuberant-ctags
         - git
         - python-virtualenv
