@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  connection: local
+  sudo_user: blocke
+
+  vars:
+    blocke_home_dir: /home/blocke
+    blocke_mail_addr: blocke@shivan.org
+
+  tasks:
+    - import dotfiles.yml
+

@@ -21,6 +21,6 @@ ansible-playbook -i inventory dependencies.yml -K
 
 The dotfiles playbook (run as blocke):
 
-ansible-playbook -i inventory dotfiles.yml
+ansible-playbook -i inventory local.yml
 
 

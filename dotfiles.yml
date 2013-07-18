@@ -1,41 +1,30 @@
----
-- hosts: localhost
-  connection: local
-  sudo_user: blocke
+- name: home subdirectories
+  file: name={{ blocke_home_dir }}/{{ item }} state=directory
+  with_items:
+    - .vim
+    - .vim/colors
+    - .vim/bundle
 
-  vars:
-    home_dir: /home/blocke
-    email_addr: blocke@shivan.org
+- name: various dot files
+  copy: src=files/{{ item }} dest={{ blocke_home_dir }}/{{ item }}
+  with_items:
+    - .vimrc
+    - .vim/colors/darkburn.vim
+    - .tmux.conf
+    - .gitignore
 
-  tasks:
+- name: vim - vundle git repo
+  git: repo=https://github.com/gmarik/vundle.git dest={{ blocke_home_dir }}/.vim/bundle/vundle 
 
-    - name: home subdirectories
-      file: name={{ home_dir }}/{{ item }} state=directory
-      with_items:
-        - .vim
-        - .vim/colors
-        - .vim/bundle
+- name: vim - run vundle bundle install
+  command: /usr/bin/vim +BundleInstall +qall
 
-    - name: various dot files
-      copy: src=files/{{ item }} dest={{ home_dir }}/{{ item }}
-      with_items:
-        - .vimrc
-        - .vim/colors/darkburn.vim
-        - .tmux.conf
-        - .gitignore
+- name: git - set global .gitignore
+  command: /usr/bin/git config --global core.excludesfile ~/.gitignore
 
-    - name: vim - vundle git repo
-      git: repo=https://github.com/gmarik/vundle.git dest={{ home_dir }}/.vim/bundle/vundle 
+- name: git - user.name
+  command: /usr/bin/git config --global user.name "Bruce A. Locke"
 
-    - name: vim - run vundle bundle install
-      command: /usr/bin/vim +BundleInstall +qall
-
-    - name: git - set global .gitignore
-      command: /usr/bin/git config --global core.excludesfile ~/.gitignore
-
-    - name: git - user.name
-      command: /usr/bin/git config --global user.name "Bruce A. Locke"
-
-    - name: git - user.email
-      command: /usr/bin/git config --global user.email {{ email_addr }}
+- name: git - user.email
+  command: /usr/bin/git config --global user.email {{ blocke_email_addr }}
 
