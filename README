@@ -1,14 +1,26 @@
 
-git clone https://github.com/blocke/dotfiles.git dotfiles
-cd dotfiles
-git submodule init
-git submodule update
+This git repo contains a short ansible playbook to manage my
+personal vim settings and various home directory dotfiles.
 
-apt-get install vim tmux exuberant-ctags keychain python-virtualenv python-dev
-pip install flake8
+Install Ansible in a virtualenv on a fresh system:
 
-apt-get install npm
-npm install jshint -g
+sudo apt-get install python-virtualenv python-dev
 
-git config --global core.excludesfile ~/.gitignore
+mkdir ~/ansible
+cd ~/ansible
+
+virtualenv pyenv
+. pyenv/bin/activate
+pip install ansible
+
+Once Ansible is installed and the virtualenv environment is
+activated from the base of the dotfiles directory run the 
+dependencies playbook:
+
+ansible-playbook -i inventory dependencies.yml -K
+
+The dotfiles playbook (run as blocke):
+
+ansible-playbook -i inventory dotfiles.yml
+
 
