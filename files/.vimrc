@@ -15,7 +15,11 @@ Bundle 'Lokaltog/vim-easymotion'
 
 " UI
 Bundle 'mbbill/undotree'
-Bundle 'myusuf3/numbers.vim'
+
+" RHEL 6 only has VIM 7.2 *cry*
+if v:version >= 703
+    Bundle 'myusuf3/numbers.vim'
+endif
 
 " Formatting
 Bundle 'godlygeek/tabular'
