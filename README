@@ -23,4 +23,7 @@ The dotfiles playbook (run as blocke):
 
 ansible-playbook -i inventory local.yml
 
+Using local.yml with a different home directory and email address:
+
+ansible-playbook -i inventory local.yml -e "blocke_home_dir=/Users/blocke blocke_mail_addr=blocke@newpaltz.edu"
 
