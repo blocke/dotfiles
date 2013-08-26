@@ -23,8 +23,8 @@
   command: chdir={{ blocke_home_dir }} /usr/bin/git config --global core.excludesfile ~/.gitignore
 
 - name: git - user.name
-  command: chdir={{ blocke_home_dir}} /usr/bin/git config --global user.name "Bruce A. Locke"
+  command: chdir={{ blocke_home_dir }} /usr/bin/git config --global user.name "Bruce A. Locke"
 
 - name: git - user.email
-  command: chdir={{ blocke_home_dir }} /usr/bin/git config --global user.email {{ blocke_email_addr }}
+  command: chdir={{ blocke_home_dir }} /usr/bin/git config --global user.email {{ blocke_mail_addr }}
 
