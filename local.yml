@@ -9,5 +9,5 @@
     dotfiles_files_dir: files
 
   tasks:
-    - import dotfiles.yml
+    - include: dotfiles.yml
 
