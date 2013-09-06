@@ -88,7 +88,7 @@ map! <F5> <ESC>:TagbarToggle<CR>
 set stal=2
 
 " Force use of flake8
-let g:syntastic_python_checker = 'flake8'
+let g:syntastic_python_checkers = ['flake8']
 
 " Disable certain PEP8 checks in flake8
 let g:syntastic_python_flake8_post_args='--ignore=E501,E302'
