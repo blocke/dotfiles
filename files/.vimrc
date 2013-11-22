@@ -21,6 +21,8 @@ if v:version >= 703
     Bundle 'myusuf3/numbers.vim'
 endif
 
+set number
+
 " Formatting
 Bundle 'godlygeek/tabular'
 
