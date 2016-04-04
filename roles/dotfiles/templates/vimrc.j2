@@ -1,3 +1,4 @@
+" {{ ansible_managed }}
 
 set nocompatible
 filetype off            " required by vundle
@@ -8,13 +9,12 @@ call vundle#rc()
 " Vundle Bundles
 Bundle 'gmarik/vundle'
 
-" Navigation
+" File Navigation
 Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-easymotion'
+let NERDTreeHijackNetrw=1
 
-" UI
-Bundle 'mbbill/undotree'
+" Control-P - Fuzzy file, buffer, mru, tag, etc finder
+Bundle 'kien/ctrlp.vim'
 
 " RHEL 6 only has VIM 7.2 *cry*
 if v:version >= 703
@@ -23,22 +23,30 @@ endif
 
 set number
 
-" Formatting
-Bundle 'godlygeek/tabular'
+" Show buffers in command bar
+Bundle 'bling/vim-bufferline'
 
-" Snips / Completion
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+" Vim Airline (status bar)
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
 
 " Programming
 Bundle 'scrooloose/syntastic'
-Bundle 'majutsushi/tagbar'
 
-" HTML
-Bundle 'amirh/HTML-AutoCloseTag'
-Bundle 'hail2u/vim-css3-syntax'
+" Surrounding tags editor magic (cs)
+Bundle 'tpope/vim-surround'
+
+" Git integration
+Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+
+" Fix very slow YAML parsing
+Bundle 'stephpy/vim-yaml'
+
+" Visual 'go to text' motions (leader is \\ so \\f or \\w)
+Bundle 'easymotion/vim-easymotion'
 
 " Kid Tested.  Python approved.
 set tabstop=4
@@ -55,7 +63,16 @@ set scrolloff=3
 set visualbell
 set noerrorbells
 
-"set hidden
+" Display vim exmode command completion options
+set wildmenu
+set wildmode=longest:full,full
+
+" Always display status line
+set laststatus=2
+
+" Required for sane buffers
+set hidden
+
 set ruler
 set title
 set showcmd
@@ -71,23 +88,22 @@ set wildignore=*.swp,*.bak,*.pyc
 " Display filename in bottom bar
 "set ls=2
 
-" Default tab bindings too painful across platforms so use F1/F2 instead
-map <F1> :tabp<CR>
-map! <F1> <ESC>:tabp<CR>
+" Default buffer bindings too painful across platforms so use F1/F2 instead
+map <F1> :bprevious<CR>
+map! <F1> <ESC>:previous<CR>
 
-map <F2> :tabn<CR>
-map! <F2> <ESC>:tabn<CR>
+map <F2> :bnext<CR>
+map! <F2> <ESC>:bnext<CR>
 
-" NERDTree on F3
+map <F3> :ls<CR>
+map! <F3> <ESC>:ls<CR>
+
+" NERDTree on F4
 map <F4> :NERDTreeToggle<CR>
 map! <F4> <ESC>:NERDTreeToggle<CR>
 
-" Tagbar on F5
-map <F5> :TagbarToggle<CR>
-map! <F5> <ESC>:TagbarToggle<CR>
-
-" Always display tab bar
-set stal=2
+" Always display tab/buffer bar
+"set stal=2
 
 " Force use of flake8
 let g:syntastic_python_checkers = ['flake8']
@@ -125,5 +141,4 @@ if &term =~ "linux"
 endif
 
 colorscheme darkburn
-
 

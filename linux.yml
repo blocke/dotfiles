@@ -1,13 +1,13 @@
 ---
 - hosts: localhost
   connection: local
-  sudo_user: blocke
+  become: yes
+  become_user: blocke
 
   vars:
     blocke_home_dir: /home/blocke
     blocke_mail_addr: blocke@shivan.org
-    dotfiles_files_dir: files
 
-  tasks:
-    - include: dotfiles.yml
+  roles:
+    - dotfiles
 

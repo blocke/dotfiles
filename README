@@ -1,29 +1,9 @@
 
-This git repo contains a short ansible playbook to manage my
-personal vim settings and various home directory dotfiles.
+This git repo contains a short ansible playbook fragment to
+manage my personal vim settings and various home directory
+dotfiles.
 
-Install Ansible in a virtualenv on a fresh system:
+Example of overriding Ansible vars at runtime:
 
-sudo apt-get install python-virtualenv python-dev
-
-mkdir ~/ansible
-cd ~/ansible
-
-virtualenv pyenv
-. pyenv/bin/activate
-pip install ansible
-
-Once Ansible is installed and the virtualenv environment is
-activated from the base of the dotfiles directory run the 
-dependencies playbook:
-
-ansible-playbook -i inventory dependencies.yml -K
-
-The dotfiles playbook (run as blocke):
-
-ansible-playbook -i inventory local.yml
-
-Using local.yml with a different home directory and email address:
-
-ansible-playbook -i inventory local.yml -e "blocke_home_dir=/Users/blocke blocke_mail_addr=blocke@newpaltz.edu"
+ansible-playbook mac.yml -e "blocke_mail_addr=blocke@newpaltz.edu"
 

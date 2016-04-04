@@ -1,0 +1,31 @@
+- name: dotfiles home subdirectories
+  file: name={{ blocke_home_dir }}/{{ item }} state=directory mode=700
+  with_items:
+    - .vim
+    - .vim/colors
+    - .vim/bundle
+
+- name: various dot files
+  template: src="{{ item.s }}" dest="{{ blocke_home_dir }}/{{ item.d }}" mode=600
+  with_items:
+    - { s: "vimrc.j2",        d: ".vimrc" }
+    - { s: "darkburn.vim.j2", d: ".vim/colors/darkburn.vim" }
+    - { s: "tmux.conf.j2",    d: ".tmux.conf" }
+    - { s: "gitignore.j2",    d: ".gitignore" }
+
+- name: vim - vundle git repo
+  git: repo=https://github.com/gmarik/vundle.git dest={{ blocke_home_dir }}/.vim/bundle/vundle 
+
+- name: vim - run vundle bundle install
+  command: chdir={{ blocke_home_dir }} /usr/bin/vim +BundleInstall +qall
+  changed_when: False
+
+- name: git configuration
+  command: chdir={{ blocke_home_dir }} /usr/bin/git config --global {{ item.k }} {{ item.v }}
+  with_items:
+    - {k: 'core.excludesfile',  v: '~/.gitignore'}
+    - {k: 'user.name',          v: '"Bruce A. Locke"'}
+    - {k: 'user.email',         v: '{{ blocke_mail_addr }}'}
+    - {k: 'core.editor',        v: '/usr/bin/vim'}
+  changed_when: False
+
