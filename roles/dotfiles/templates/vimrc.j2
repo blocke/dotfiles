@@ -10,21 +10,15 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " File Navigation
-Bundle 'scrooloose/nerdtree'
-let NERDTreeHijackNetrw=1
+Bundle 'tpope/vim-vinegar'
+let g:netrw_banner = 1
 
 " Control-P - Fuzzy file, buffer, mru, tag, etc finder
 Bundle 'kien/ctrlp.vim'
 
-" RHEL 6 only has VIM 7.2 *cry*
-if v:version >= 703
-    Bundle 'myusuf3/numbers.vim'
-endif
-
+" Relative line numbers
+Bundle 'myusuf3/numbers.vim'
 set number
-
-" Show buffers in command bar
-Bundle 'bling/vim-bufferline'
 
 " Vim Airline (status bar)
 Bundle 'vim-airline/vim-airline'
@@ -85,9 +79,6 @@ set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.bak,*.pyc
 
-" Display filename in bottom bar
-"set ls=2
-
 " Default buffer bindings too painful across platforms so use F1/F2 instead
 map <F1> :bprevious<CR>
 map! <F1> <ESC>:previous<CR>
@@ -101,9 +92,6 @@ map! <F3> <ESC>:ls<CR>
 " NERDTree on F4
 map <F4> :NERDTreeToggle<CR>
 map! <F4> <ESC>:NERDTreeToggle<CR>
-
-" Always display tab/buffer bar
-"set stal=2
 
 " Force use of flake8
 let g:syntastic_python_checkers = ['flake8']
@@ -123,6 +111,13 @@ nnoremap <F11> :setl cin si<CR>
 
 " Yaml indenting
 autocmd FileType yaml set tabstop=2 expandtab softtabstop=2
+
+" Markdown files with .md extension
+autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+autocmd FileType markdown set wrap linebreak nolist spell textwidth=0 wrapmargin=0 formatoptions-=t
+
+" Bad spelling underlining
+hi SpellBad cterm=underline ctermfg=red
 
 " Woo colors...
 if &term =~ "xterm"
