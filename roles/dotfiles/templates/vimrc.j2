@@ -121,6 +121,7 @@ autocmd FileType yaml set tabstop=2 expandtab softtabstop=2
 " Custom markdown files handler for .md extension
 autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=md-c
 autocmd FileType md-c set wrap linebreak nolist spell textwidth=0 wrapmargin=0 formatoptions-=t
+autocmd FileType md-c set tabstop=2 expandtab softtabstop=2
 autocmd FileType md-c hi SpellBad cterm=underline ctermfg=red ctermbg=none
 
 " Woo colors...
