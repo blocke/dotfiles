@@ -9,9 +9,12 @@ call vundle#rc()
 " Vundle Bundles
 Bundle 'gmarik/vundle'
 
-" File Navigation
-Bundle 'tpope/vim-vinegar'
-let g:netrw_banner = 1
+" NERDTree
+Bundle 'scrooloose/nerdtree'
+nmap <silent> <F4> :NERDTreeToggle<CR>
+
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = '-'
 
 " Control-P - Fuzzy file, buffer, mru, tag, etc finder
 Bundle 'kien/ctrlp.vim'
@@ -60,9 +63,6 @@ set scrolloff=3
 
 set visualbell
 set noerrorbells
-
-" Support mouse in terminal windows (remember to use shift)
-set mouse=a
 
 " Display vim exmode command completion options
 set wildmenu
